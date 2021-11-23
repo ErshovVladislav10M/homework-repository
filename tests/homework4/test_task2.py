@@ -1,4 +1,3 @@
-from unittest import TestCase
 from unittest.mock import patch
 
 import homework4.task_2_mock_input
