@@ -9,4 +9,4 @@ def test_positive():
     fi.close()
     ans = read_magic_number(os.getcwd() + "/test_task1_text.txt")
     os.remove(os.getcwd() + "/test_task1_text.txt")
-    assert ans == True
+    assert ans
