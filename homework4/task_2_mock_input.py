@@ -34,10 +34,5 @@ def get_html(url: str) -> str:
 
 
 def count_dots_on_i(url: str) -> int:
-    counter = 0
     data = get_html(url)
-    for word in data.split():
-        for letter in word:
-            if letter == ord("i"):
-                counter += 1
-    return counter
+    return str(data).count("i")
