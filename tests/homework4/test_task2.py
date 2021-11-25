@@ -9,7 +9,7 @@ class TestFunc(TestCase):
     @patch(
         "homework4.task_2_mock_input.get_html",
         return_value=open(
-            os.getcwd() + "/homework4/test_task2_html.txt", "rb"
+            os.getcwd() + "tests/homework4/test_task2_html.txt", "rb"
         ).read(),
     )
     def test_positive(self, get_html):
