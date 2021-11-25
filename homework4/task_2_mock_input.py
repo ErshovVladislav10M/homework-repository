@@ -29,10 +29,13 @@ You will learn:
 import urllib.request
 
 
+def get_html(url: str) -> str:
+    return urllib.request.urlopen(url).read()
+
+
 def count_dots_on_i(url: str) -> int:
     counter = 0
-    weburl = urllib.request.urlopen(url)
-    data = weburl.read()
+    data = get_html(url)
     for word in data.split():
         for letter in word:
             if letter == ord("i"):
