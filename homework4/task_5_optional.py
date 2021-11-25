@@ -38,12 +38,12 @@ def loop(base):
     yield base + 13
     yield base + 14
     yield "fizzbuzz"
-    
+
 
 def unlim_fizzbuzz():
     index = 0
     while True:
-        for element in loop(base=index*15):
+        for element in loop(base=index * 15):
             yield element
         index += 1
 
