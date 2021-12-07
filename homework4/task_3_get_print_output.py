@@ -28,8 +28,4 @@ def my_precious_logger(text: str):
     if text.split()[0] == "error:":
         sys.stderr = text
     else:
-        stdout = sys.stdout
-        sys.stdout = open("stdout_text.txt", "w")
-        sys.stdout.write(text)
-        sys.stdout.close()
-        sys.stdout = stdout
+        print(text)
