@@ -14,7 +14,6 @@ def test_positive():
     assert ans
 
 
-
 def test_negative():
     fi = open("test_task1_text.txt", "w")
     fi.write("5")
