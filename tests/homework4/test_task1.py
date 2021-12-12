@@ -23,11 +23,11 @@ def test_negative():
     assert not ans
 
 
-def test_exception():
+def test_exception(capfd):
     fi = open("test_task1_text.txt", "w")
     fi.write("dddd")
     fi.close()
     read_magic_number(os.getcwd() + "/test_task1_text.txt")
-    out, err = capsys.readouterr()
+    out, err = capfd.readouterr()
     os.remove(os.getcwd() + "/test_task1_text.txt")
     assert out == "В первой строке не число"
