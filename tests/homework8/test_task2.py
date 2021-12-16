@@ -21,4 +21,8 @@ def test_table_data_iterable():
     presidents = TableData(
         os.getcwd() + "/homework8/" + "test_data_task2.sqlite", "presidents"
     )
-    assert [president[0] for president in presidents] == ['Yeltsin', 'Trump', 'Big Man Tyrone']
+    assert [president[0] for president in presidents] == [
+        "Yeltsin",
+        "Trump",
+        "Big Man Tyrone",
+    ]
