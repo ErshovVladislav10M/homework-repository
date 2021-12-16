@@ -14,7 +14,7 @@ def test_table_data_contains():
     presidents = TableData(
         os.getcwd() + "/homework8/" + "test_data_task2.sqlite", "presidents"
     )
-    assert "Trump" in presidents
+    assert "Yeltsin" in presidents
 
 
 def test_table_data_iterable():
