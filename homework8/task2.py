@@ -86,6 +86,10 @@ as database fixture file.
 import sqlite3
 from contextlib import contextmanager
 
+SELECT_FROM = "SELECT * FROM {}"
+SELECT_COUNT_FROM = "SELECT COUNT(*) FROM {}"
+SELECT_FROM_WHERE_NAME = "SELECT * FROM {} WHERE name=:name"
+
 
 class TableData:
     def __init__(self, database_name, table_name):
@@ -101,20 +105,20 @@ class TableData:
     def __iter__(self):
         with self.open_database() as cursor:
             yield from cursor.execute(
-                "SELECT * FROM {}".format(self.table_name)
+                SELECT_FROM.format(self.table_name)
             ).fetchall()
 
     def __len__(self):
         with self.open_database() as cursor:
             return cursor.execute(
-                "SELECT COUNT(*) FROM {}".format(self.table_name)
+                SELECT_COUNT_FROM.format(self.table_name)
             ).fetchone()[0]
 
     def __contains__(self, item):
         with self.open_database() as cursor:
             return bool(
                 cursor.execute(
-                    "SELECT * FROM {} WHERE name=:name".format(self.table_name),
+                    SELECT_FROM_WHERE_NAME.format(self.table_name),
                     {"name": item},
                 ).fetchone()
             )
@@ -122,7 +126,7 @@ class TableData:
     def __getitem__(self, item):
         with self.open_database() as cursor:
             row = cursor.execute(
-                "SELECT * FROM {} WHERE name=:name".format(self.table_name),
+                SELECT_FROM_WHERE_NAME.format(self.table_name),
                 {"name": item},
             ).fetchone()
             if row is None:
