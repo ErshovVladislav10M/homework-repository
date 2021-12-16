@@ -32,4 +32,4 @@ def test_table_data_getitem():
     presidents = TableData(
         os.getcwd() + "/homework8/" + "test_data_task2.sqlite", "presidents"
     )
-    assert presidents['Trump'] == ('Trump', 1337, 'US')
+    assert presidents["Trump"] == ("Trump", 1337, "US")
