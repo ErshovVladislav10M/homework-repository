@@ -10,7 +10,6 @@ def test_merge_sorted_files():
     fi = open(os.getcwd() + "/file2.txt", "w")
     fi.write("2\n4\n6\n")
     fi.close()
-
     numbers = merge_sorted_files(["file1.txt", "file2.txt"])
     assert [1, 2, 3, 4, 5, 6] == [num for num in numbers]
 
