@@ -7,5 +7,5 @@ def test_suppressor():
 
 
 def test_Suppressor():
-    with Suppressor(IndexError):
+    with Suppressor(ValueError):
         ...
