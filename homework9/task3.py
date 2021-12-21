@@ -17,4 +17,10 @@ from typing import Callable, Optional
 def universal_file_counter(
     dir_path: Path, file_extension: str, tokenizer: Optional[Callable] = None
 ) -> int:
-    pass
+    all_files = dir_path.glob(file_extension)
+    counter = 0
+    for file in all_files:
+        with open(file) as fi:
+            for _ in fi:
+                counter += 1
+    return counter
