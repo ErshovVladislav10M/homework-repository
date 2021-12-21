@@ -6,3 +6,12 @@ Do it both ways: as a class and as a generator.
 ...    [][2]
 
 """
+from contextlib import contextmanager
+
+
+@contextmanager
+def suppressor(exception):
+    try:
+        yield
+    except exception:
+        pass
