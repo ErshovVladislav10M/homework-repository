@@ -4,7 +4,7 @@ from pathlib import Path
 from homework9.task3 import universal_file_counter
 
 
-def test_universal_file_counter_without_token():
+def test_universal_file_counter_without_tokenizer():
     fi = open(os.getcwd() + "/file1.txt", "w")
     fi.write("1\n3\n5\n")
     fi.close()
