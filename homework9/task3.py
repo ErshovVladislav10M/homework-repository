@@ -10,9 +10,25 @@ For dir with two files from hw1.py:
 6
 
 """
-import tokenize
 from pathlib import Path
 from typing import Callable, Optional
+
+
+def count_line(dir_path: Path, file_extension: str):
+    counter = 0
+    for file in dir_path.glob(file_extension):
+        with open(file) as fi:
+            counter += sum(1 for _ in fi)
+    return counter
+
+
+def count_token(dir_path, file_extension, tokenizer):
+    counter = 0
+    for file in dir_path.glob(file_extension):
+        with open(file) as fi:
+            for line in fi:
+                counter += sum(1 for token in tokenizer(line))
+    return counter
 
 
 def universal_file_counter(
@@ -20,15 +36,6 @@ def universal_file_counter(
 ) -> int:
     counter = 0
     if tokenizer:
-        for file in dir_path.glob(file_extension):
-            with open(file, "rb") as fi:
-                counter += sum(
-                    1
-                    for token in tokenize.tokenize(fi.readline)
-                    if token.exact_type == 4
-                )
+        return count_token(dir_path, file_extension, tokenizer)
     else:
-        for file in dir_path.glob(file_extension):
-            with open(file) as fi:
-                counter += sum(1 for _ in fi)
-    return counter
+        return count_line(dir_path, file_extension)
