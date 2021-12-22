@@ -34,7 +34,6 @@ def count_token(dir_path, file_extension, tokenizer):
 def universal_file_counter(
     dir_path: Path, file_extension: str, tokenizer: Optional[Callable] = None
 ) -> int:
-    counter = 0
     if tokenizer:
         return count_token(dir_path, file_extension, tokenizer)
     else:
