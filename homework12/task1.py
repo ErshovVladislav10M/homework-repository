@@ -20,8 +20,18 @@ retrieves and stores the following information into CSV file report.csv
 Utilize ORM capabilities as much as possible, avoiding executing
 raw SQL queries.
 """
-from sqlalchemy import MetaData, Table, String, Integer, Column, Text, DateTime, ForeignKey
 import datetime
+
+from sqlalchemy import (
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    MetaData,
+    String,
+    Table,
+    Text,
+)
 
 metadata = MetaData()
 
