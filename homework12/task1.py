@@ -20,6 +20,51 @@ retrieves and stores the following information into CSV file report.csv
 Utilize ORM capabilities as much as possible, avoiding executing
 raw SQL queries.
 """
-from sqlalchemy import (Boolean, Column, DateTime, ForeignKey, Integer, String,
-                        Text)
-from sqlalchemy.orm import relationship
+from sqlalchemy import MetaData, Table, String, Integer, Column, Text, DateTime, ForeignKey
+import datetime
+
+metadata = MetaData()
+
+Homework = Table(
+    "Homework",
+    metadata,
+    Column("id", Integer(), primary_key=True),
+    Column("text", Text, nullable=False),
+    Column("deadline", Integer(), nullable=False),
+    Column("created", DateTime(), default=datetime.datetime.now()),
+)
+
+HomeworkResult = Table(
+    "HomeworkResult",
+    metadata,
+    Column("id", Integer(), primary_key=True),
+    Column("homework", ForeignKey("Homework.id"), nullable=False),
+    Column("solution", Text(), nullable=False),
+    Column("author", ForeignKey("Student.id"), nullable=False),
+    Column("created", DateTime(), default=datetime.datetime.now()),
+    Column("grade", Integer(), default=0),
+)
+
+Person = Table(
+    "Person",
+    metadata,
+    Column("id", Integer(), primary_key=True),
+    Column("last_name", String(50), nullable=False),
+    Column("first_name", String(50), nullable=False),
+)
+
+Student = Table(
+    "Student",
+    metadata,
+    Column("id", Integer(), primary_key=True),
+    Column("person", ForeignKey("Person.id"), nullable=False),
+)
+
+Teacher = Table(
+    "Teacher",
+    metadata,
+    Column("id", Integer(), primary_key=True),
+    Column("person", ForeignKey("Person.id"), nullable=False),
+)
+
+Base.metadata.create_all(engine)
