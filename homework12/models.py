@@ -68,5 +68,3 @@ Teacher = Table(
     Column("id", Integer(), primary_key=True),
     Column("person", ForeignKey("Person.id"), nullable=False),
 )
-
-Base.metadata.create_all(engine)
