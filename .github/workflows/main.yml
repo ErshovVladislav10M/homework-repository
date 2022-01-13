@@ -19,5 +19,5 @@ jobs:
           ls -la
           flake8 --ignore=E203 /__w/homework-repository/homework-repository/homework2/task5.py /__w/homework-repository/homework-repository/homework7/task2.py
           isort --line-length 80 --check .
-          black --line-length 80 --check .
+          black --line-length 81 --check .
           py.test tests
