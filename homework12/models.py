@@ -22,10 +22,10 @@ raw SQL queries.
 """
 import datetime
 
-from sqlalchemy import (Column, DateTime, ForeignKey, Integer, MetaData,
-                        String, Table, Text)
+import sqlalchemy
+from sqlalchemy import Column, ForeignKey, Integer, String, Table, Text
 
-metadata = MetaData()
+metadata = sqlalchemy.MetaData()
 
 Homework = Table(
     "Homework",
@@ -33,7 +33,7 @@ Homework = Table(
     Column("id", Integer(), primary_key=True),
     Column("text", Text, nullable=False),
     Column("deadline", Integer(), nullable=False),
-    Column("created", DateTime(), default=datetime.datetime.now()),
+    Column("created", sqlalchemy.DateTime(), default=datetime.datetime.now()),
 )
 
 HomeworkResult = Table(
