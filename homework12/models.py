@@ -43,7 +43,7 @@ HomeworkResult = Table(
     Column("homework", ForeignKey("Homework.id"), nullable=False),
     Column("solution", Text(), nullable=False),
     Column("author", ForeignKey("Student.id"), nullable=False),
-    Column("created", DateTime(), default=datetime.datetime.now()),
+    Column("created", sqlalchemy.DateTime(), default=datetime.datetime.now()),
     Column("grade", Integer(), default=0),
 )
 
