@@ -22,8 +22,16 @@ raw SQL queries.
 """
 import datetime
 
-from sqlalchemy import (Column, DateTime, ForeignKey, Integer, MetaData,
-                        String, Table, Text)
+from sqlalchemy import (
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    MetaData,
+    String,
+    Table,
+    Text,
+)
 
 metadata = MetaData()
 
