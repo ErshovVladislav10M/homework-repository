@@ -1,6 +1,6 @@
 from logging.config import fileConfig
 
-from main import metadata
+from homework12.models import metadata
 from sqlalchemy import engine_from_config, pool
 
 from alembic import context
