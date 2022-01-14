@@ -43,3 +43,4 @@ class KeyValueStorage(dict):
                 pass
             self.update([(key, value)])
             self.__setattr__(key, value)
+        fi.close()
