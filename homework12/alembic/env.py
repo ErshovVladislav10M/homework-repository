@@ -37,7 +37,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = config.get_main_option("sqlite///main.db")
+    url = config.get_main_option("sqlite///./homework12/main.db")
     context.configure(
         url=url,
         target_metadata=target_metadata,
