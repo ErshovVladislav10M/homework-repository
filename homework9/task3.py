@@ -16,7 +16,7 @@ from typing import Callable, Optional
 
 def count_line(dir_path: Path, file_extension: str):
     counter = 0
-    for file in dir_path.glob(file_extension):
+    for file in dir_path.glob("**/" + file_extension):
         with open(file) as fi:
             counter += sum(1 for _ in fi)
     return counter
@@ -24,7 +24,7 @@ def count_line(dir_path: Path, file_extension: str):
 
 def count_token(dir_path, file_extension, tokenizer):
     counter = 0
-    for file in dir_path.glob(file_extension):
+    for file in dir_path.glob("**/" + file_extension):
         with open(file) as fi:
             for line in fi:
                 counter += sum(1 for token in tokenizer(line))
