@@ -10,7 +10,7 @@ def test_universal_file_counter_without_tokenizer():
     fi = open(Path.cwd() / "file2.txt", "w")
     fi.write("2\n4\n6\n")
     fi.close()
-    
+
     Path.mkdir(Path.cwd() / "ddd")
     fi = open(Path.cwd() / "ddd" / "file2.txt", "w")
     fi.write("2\n4\n6\n")
@@ -23,7 +23,6 @@ def test_universal_file_counter_without_tokenizer():
     Path.unlink(Path.cwd() / "file2.txt")
     Path.unlink(Path.cwd() / "ddd" / "file2.txt")
     Path.rmdir(Path.cwd() / "ddd")
-    
 
 
 def test_universal_file_counter_with_tokenizer():
