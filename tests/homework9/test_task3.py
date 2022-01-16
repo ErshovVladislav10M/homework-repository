@@ -33,7 +33,9 @@ def test_universal_file_counter_with_tokenizer():
     fi.write("2\n4\n6\n")
     fi.close()
 
-    lines = universal_file_counter(Path.cwd(), "*.txt", str.split)
+    lines = universal_file_counter(
+        Path.cwd().parent / "homework9", "*.txt", str.split
+    )
     assert lines == 6
 
     Path.unlink(Path.cwd() / "file1.txt")
