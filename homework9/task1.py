@@ -24,8 +24,18 @@ def merge_sorted_files(file_list) -> Iterator:
             all_numbers_from_files.append(fi.read().split())
 
     sorted_numbers = []
-    for j in range(len(all_numbers_from_files[0])):
-        for i in range(len(all_numbers_from_files)):
-            sorted_numbers.append(int(all_numbers_from_files[i][j]))
+    while len(all_numbers_from_files) > 0:
+        min_num = min(
+            list(
+                enumerate(
+                    ([int(numbers[0]) for numbers in all_numbers_from_files]), 0
+                )
+            ),
+            key=lambda x: x[1],
+        )
+        sorted_numbers.append(min_num[1])
+        all_numbers_from_files[min_num[0]].remove(str(min_num[1]))
+        if len(all_numbers_from_files[min_num[0]]) == 0:
+            all_numbers_from_files.remove(all_numbers_from_files[min_num[0]])
 
     return iter(sorted_numbers)
