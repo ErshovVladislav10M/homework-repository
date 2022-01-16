@@ -34,7 +34,7 @@ def test_universal_file_counter_with_tokenizer():
     fi.close()
 
     lines = universal_file_counter(
-        Path.cwd().parent / "tests", "*.txt", str.split
+        Path.cwd().parent / "homework-repository", "*.txt", str.split
     )
     assert lines == 6
 
